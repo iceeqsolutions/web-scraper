@@ -7,6 +7,13 @@
   </head>
   <body>
     <h1>Scraping stuff...</h1>
-    <p>{{page_text}}</p>
+    {% for product in productsFound %}
+    <div>
+      <h2>{{product.productTitle}}</h2>
+      <img src="{{product.productImage}}" alt="{{product.productTitle}}" />
+      <p>{{product.price}}</p>
+      <a href="{{product.link}}">Link</a>
+    </div>
+    {% endfor %}
   </body>
 </html>
