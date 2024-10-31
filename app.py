@@ -1,11 +1,13 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from bs4 import BeautifulSoup
 import requests
 import math
+from forms import SearchForm
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "thisIsOurSecretSoSchhhh!"
 
-@app.route("/")
+""" @app.route("/")
 def home():
     searchTerm = "4080"
     url = f"https://www.data-systems.fi/?s={searchTerm}&post_type=product"
@@ -41,7 +43,17 @@ def home():
             productInfo = {"productTitle": productTitle, "productImage": productImage, "link": productLink, "price": productPrice}
             productsFound.append(productInfo)
 
-    return render_template("index.html", productsFound=productsFound)
+    return render_template("index.html", productsFound=productsFound) """
+
+@app.route("/", methods=["GET", "POST"])
+def home():
+    form = SearchForm()
+    if form.is_submitted():
+        searchTerm = request.form.get("search")
+        print(searchTerm)
+        
+    return render_template("index.html", form=form)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

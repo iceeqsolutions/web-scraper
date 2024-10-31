@@ -7,6 +7,12 @@
   </head>
   <body>
     <h1>Scraping stuff...</h1>
+    <form action="" method="POST">
+      <span>{{form.search.label}}:</span>
+      <span>{{form.search(size=50)}}</span>
+      <p>{{form.submit()}}</p>
+    </form>
+
     {% for product in productsFound %}
     <div>
       <h2>{{product.productTitle}}</h2>
