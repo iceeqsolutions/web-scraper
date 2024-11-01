@@ -1,0 +1,41 @@
+{% extends "index.html" %} {% block content %}
+<nav class="navbar">
+  <div class="container-fluid">
+    <a href="/"><img class="navLogo" src="../static/navLogo.png" alt="" /></a>
+    <form action="" method="POST">
+      <p>{{form.search(class_="searchField")}}</p>
+      <span>{{form.submit()}}</span>
+    </form>
+  </div>
+</nav>
+<div class="resultContainer">
+  {% for product in productsFound %}
+  <div class="products">
+    <img
+      class="img-fluid"
+      src="{{product.productImage}}"
+      alt="{{product.productTitle}}"
+    />
+    <div class="productInfo">
+      <div class="priceTitle">
+        <h3>{{product.productTitle}}</h3>
+        <p>{{product.price}}</p>
+      </div>
+      <a class="link-underline-warning link-offset-3" href="{{product.link}}"
+        >More info</a
+      >
+    </div>
+  </div>
+  {% endfor %}
+  <div class="ics-container">
+    <p class="ics-p">Web scraping demo by:</p>
+    <a class="icsLink" href="https://iceeqsolutions.fi" target="_blank">
+      <img
+        src="../static/iCeeqSolutionsLogo.png"
+        alt="Company logo"
+        class="icsLogo"
+      />
+    </a>
+  </div>
+</div>
+{% endblock %}

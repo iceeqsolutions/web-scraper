@@ -7,8 +7,12 @@ from forms import SearchForm
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "thisIsOurSecretSoSchhhh!"
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def home():
+    return render_template("home.html")
+
+@app.route("/scraper", methods=["GET", "POST"])
+def scraper():
     form = SearchForm()
     if form.is_submitted():
         searchTerm = request.form.get("search")
@@ -52,9 +56,9 @@ def home():
                     productInfo = {"productTitle": productTitle, "productImage": productImage, "link": productLink, "price": productPrice}
                     productsFound.append(productInfo)
 
-            return render_template("index.html", productsFound=productsFound, form=form)
+            return render_template("scraper.html", productsFound=productsFound, form=form)
         
-    return render_template("index.html", form=form)
+    return render_template("scraper.html", form=form)
 
 
 if __name__ == "__main__":
