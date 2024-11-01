@@ -1,0 +1,47 @@
+.navbar {
+  background-color: #000;
+  box-shadow: 0px 3px 5px 3px #ff9f29;
+}
+.navLogo {
+  height: 200px;
+}
+#submit {
+  background-color: orange;
+  color: #fff;
+  border-radius: 10px;
+  padding: 5px 10px;
+  box-shadow: 0px 1px 5px 5px #fff;
+}
+.searchField {
+  width: 300px;
+  border-radius: 10px;
+  padding: 5px;
+  box-shadow: 0px 0px 2px 2px #fff;
+}
+.img-fluid {
+  max-height: 150px;
+  margin-left: 30px;
+  border-radius: 10px;
+}
+h3 {
+  font-size: 1rem;
+  color: #fff;
+}
+p {
+  font-size: 0.8rem;
+  color: #fff;
+}
+.resultContainer {
+  height: 100vh;
+  background-image: url(../static/resultBkg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.products {
+  background-image: url(../static/itemBkg.jpg);
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  padding: 20px;
+  box-shadow: 0px 3px 5px 5px #fff;
+}
